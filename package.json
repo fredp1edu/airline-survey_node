@@ -18,6 +18,7 @@
   "homepage": "https://github.com/fredp1edu/airlinesurvey_node#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "bson-ext": "^1.0.5",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",

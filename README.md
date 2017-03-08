@@ -15,3 +15,9 @@ Task 1: set up node with express/handlebars/body-parser modules, break existing 
 Task 2: Integrate with MongoDB
 
 -  setting up map collections is definitely cooler with js than java, which makes for connecting form data to front and back-end js objects a breeze. Now for that beast mongo. 
+
+- Mongo tells you how to connect to it, mongo tells you how to create collections, add data to them, mongo tells you how to then find that data and send to an array. What Mongo does not tell you in pages and pages of reading its online manual is: how to take that array that mongo created, and very easily and simply copy it to a javascript array or object, so we can go about our business with the rest of the necessary coding. Chapters and chapters and links abound but no simple answer to that simple question.  
+
+AM I MISSING SOMETHING HERE! WHAT IS SO FREAKIN COMPLICATED ABOUT THAT? SHOULDN'T THAT INFO BE ON THE FIRST PAGE?
+
+For that reason alone I think the mongo developers/instructors/whomever should be flogged.
