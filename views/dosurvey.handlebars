@@ -1,0 +1,59 @@
+<div class="inHeader">
+    <h1>Please fill out the questionnaire below.</h1>
+</div>
+<h2>Please provide as much information as you can recall.&nbsp;&nbsp; Required fields have an asterisk*</h2>
+<section id="sectionForm">
+    <form id="frmAirline" name="frmAirline" onsubmit="return checkForm()" method="post">
+        <aside class="frmHdRw">
+            <div class="frmCl_4">Airline Name</div>
+            <div class="frmCl_4">Flight #</div>
+            <div class="frmCl_4">Destination</div>
+            <div class="frmCl_4">Date</div>
+        </aside>
+        <aside class="frmRw">
+            <div class="frmCl_4">     
+                <input name="carrierInput" id="carrierInput" type="text" autofocus/>   {{!-- onkeyup="searchCarriers()" --}}
+                <div id="searchResults"><select name="resultBox" id="resultBox"></select></div>
+            </div>
+            <div class="frmCl_4">
+                <input name="flightNum" id="flightNum" type="text" onkeyup="killSearch()"/>
+            </div>
+            <div class="frmCl_4">
+                <input name="flightDest" id="flightDest" type="text" />
+            </div>
+            <div class="frmCl_4">
+                <input name="flightDate" id="flightDate" type="text" maxlength="10"  placeholder="MM-DD-YYYY"/>
+            </div>      
+        </aside>
+        <p>Please rate your airline experience using the criteria below:</p>
+        <aside class="FrmRw">
+            <div class="frmRtLdCl"></div>
+            {{#each params.getRateKey}}
+                <div class="frmRtHdCl">{{this}}</div>
+            {{/each}}
+        </aside>
+        {{{params.getRadioFields}}}         {{!--handlebars sucks for nested loops, just imported it from javascript --}}
+        <div id="respInput">
+            <p>Please provide a name for better processing. <br/>
+                Add your email and be entered in to weekly chances to receive free trips!</p>
+            <div class="frmRw">
+                <div class="frmCl_3">
+                    <input name="respFName" id="respFName" type="text" size="28" placeholder="First"/>
+                </div>
+                <div class="frmCl_3">
+                    <input name="respLName" id="respLName" type="text" size="28" placeholder="Last"/>
+                </div>
+                <div class="frmCl_3">
+                    <input name="respEmail" id="respEmail" type="email" size="28" placeholder="Valid Email"/>
+                </div>
+            </div>
+        </div>
+        <button id='btn' type="submit">Submit</button>
+     </form>
+    <div id="errorBox">
+        <span id='errorMsg'>Error Message Here</span> 
+    </div>
+    
+</section>
+<figure id="imgBtmLeft"><img src="/images/pilotmale1.png" alt="Pilot"/></figure> 
+<figure id="imgBtmRight"><img src="/images/flightattendant2.png" alt="flight attendant 2"/></figure>

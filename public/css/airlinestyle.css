@@ -1,0 +1,295 @@
+/*myerweb reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, main,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/******** My stuff ********/
+
+/*    AirlineMain  */
+#mainPage {  
+  background: rgb(32,178,170); /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(rgb(32,178,170), rgb(64,224,208), rgb(224,255,255)); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(rgb(32,178,170), rgb(64,224,208), rgb(224,255,255)); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(rgb(32,178,170), rgb(64,224,208), rgb(224,255,255)); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(rgb(32,178,170), rgb(64,224,208), rgb(224,255,255)); /* Standard syntax */
+}
+img {max-width: 100%}
+#sectionHead {
+    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    background: rgb(255,255,224); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, rgb(255,255,224), rgb(184,134,11)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgb(255,255,224), rgb(184,134,11)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgb(255,255,224), rgb(184,134,11)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgb(255,255,224), rgb(184,134,11)); /* Standard syntax */
+}
+#sectionHead h1, .inHeader h1 {
+    font-size: 2.1rem;
+    font-style: italic;
+    font-weight: 900;
+    color: rgb(139,69,19);
+}
+#imgTopLeft, #imgTopRight, #imgBtmLeft, #imgBtmRight {
+    position: absolute
+}
+#imgTopLeft {
+    width: 20%;
+    top: 2.2%;
+    left: .8%;
+    opacity: 0.8;
+}
+#imgTopRight {
+    width: 30%;
+    top: 3%;
+    right: 1%;
+    opacity: 0.7;
+}
+/* ************INSERTS FOR AIRLINE MAIN************ */
+.inHeader {
+    position: absolute;
+    top: 7%;
+    left: 22%;
+}
+h2 {
+    margin: 1% 0 0 14%;
+    color: rgb(255,248,220);
+    font-size: 1.5rem;
+}
+/* *****************DOSURVEY****************** */
+#sectionForm {
+    width: 53%;
+    border: 5px solid rgb(139,69,19); 
+    border-radius: 40px;
+    margin: 2% auto 1%;
+    background: rgb(235,235,224); /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* Standard syntax */
+    padding: 1%;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 1rem;
+}
+.frmRw, .frmHdRw {
+    width: 98%;
+    margin: 1% auto;
+} 
+.frmHdRw {
+    font-weight: 900;
+    text-align: center;
+}
+.frmHdRw div {
+    border-bottom: 2px solid rgb(0,0,0);
+}
+.frmCl_4, .frmCl_3, .frmRtLdCl, .frmRtHdCl, .frmRtCl {
+    display: inline-block;
+}
+.frmCl_4 {
+    width: 22%;
+    margin: 0 1%;
+}
+.frmCl_3 {
+    width: 30%;
+    margin: 0 1%
+}
+#frmAirline p {
+    font-size: .8rem;
+    margin: 3% 0;
+}
+.frmRtLdCl {
+    width: 28%;
+    margin: 0 .5%;
+    font-size: .8rem;
+}
+.frmRtHdCl, .frmRtCl {
+    width: 12%;
+    margin: 0 .5%;
+    text-align: center;
+} 
+.frmRtHdCl {
+    font-weight: 800;
+    border-bottom: 2px solid rgb(0,0,0);
+}
+#flightDate {
+    text-align: center;
+}
+#btn {
+    width: 15%;
+    margin: 3% 0 0 42%;
+    color: rgb(0, 100,0);
+    font-size: 1.3rem;
+    text-align: center;
+}
+#errorBox {
+    width: 70%;
+    margin: 2% auto 0;
+    display: none;
+}
+#errorMsg {
+    display: inline;
+    text-align: center;
+    color: rgb(255,0,0);
+    font-weight: 900;
+}
+#imgBtmLeft {
+    width: 28%;
+    top: 32%;
+    left: -3%;
+    opacity: 0.8;
+}
+#imgBtmRight  {
+    width: 28%;
+    top: 33%;
+    right: -3%;
+    opacity: 0.7;
+}
+/* *****************HOME and FINISHSURVEY ****************** */
+.frmLdCl_2, .frmCl_2 {
+    display: inline-block;
+}
+.frmLdCl_2 {
+    width: 40%;
+    margin: 0 1% 0 0;
+}
+#imgBtmCenter {
+    width: 50%;
+    margin: 4% auto;
+    opacity: 0.8;
+}
+#imgBtmCntr {
+    width: 53%;
+    margin: 2% 0 0 31%;
+    border-width: 2px;
+    border-radius: 40px;
+    opacity: 0.8;
+}
+#sectionList {
+    width: 88%;
+    border: 5px solid rgb(139,69,19); 
+    border-radius: 40px;
+    margin: 3% auto 1%;
+    background: rgb(255,248,221); 
+    padding: 2%;
+    font-size: .9rem;
+}
+#tableList {
+    border: 3px solid black;
+}
+.thc {
+    background-color: rgb(139,69,19);
+    color: rgb(255,215,0);
+    text-align: center;
+    padding: 4px 5px;
+    border-collapse: collapse;
+}
+.thh {
+    color: rgb(139,69,19);
+    text-align: center;
+    padding: 4px 5px;
+    border-bottom: 2px dashed rgb(139,69,19);
+}
+#tableList td {
+    padding: 2px 15px;
+}
+.gotoBtn {
+    width: 50%;
+    margin: 1% auto;
+    text-align: center;
+    border: 4px solid rgb(139,69,19); 
+    border-radius: 40px;
+    background-color: rgb(47,79,79);
+    padding: 1%;
+    font-weight: 700;
+}
+td.bb {
+    border: 1px solid black;
+    text-align: center;
+}
+.rowMar td {
+    margin-bottom: 2%;
+}
+.ind {
+    text-indent: 2%;
+    font-weight: 700;
+    color: rgb(105,105,105);
+    border-bottom: 1px dashed blue;
+}
+.gotoBtn a {
+    font-size: 1.2rem;
+    color: rgb(255,215,0);
+}
+#searchResults {
+    width: 32%;
+    margin-top: -2.5%;
+    margin-left: 6.5%;
+    display: none;
+}
+#resultBox {
+    width: 100%;
+}
+#table1, #table2, #table3 {
+    width: 60%;
+    margin: 3% auto;
+}
+#table1, #table3 {
+    width: 48%;
+}
+#table1 td:nth-child(2), #table2 td:nth-child(2), #table3 td:nth-child(2) {
+    padding-left: 30px;
+}
+#table2 tr:first-child {
+    font-weight: 800;
+}
+em {
+    font-style: italic;
+}
+/* *****************ERROR PAGE ****************** */
+#errorPage {
+    width: 60%;
+    margin: 1% auto;
+    text-align: center;
+    background-color: beige;
+    font-size: 2rem;
+    border: 3px groove rgb(184,134,11);
+    border-radius: 0 40px;
+}

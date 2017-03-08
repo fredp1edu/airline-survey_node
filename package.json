@@ -1,0 +1,28 @@
+{
+  "name": "airlinesurvey_node",
+  "version": "1.0.0",
+  "description": "node express version of airlinesurvey_netbeans",
+  "main": "airlinemain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredp1edu/airlinesurvey_node.git"
+  },
+  "author": "Fred Pierce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredp1edu/airlinesurvey_node/issues"
+  },
+  "homepage": "https://github.com/fredp1edu/airlinesurvey_node#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.1",
+    "express3-handlebars": "^0.5.2",
+    "handlebars": "^4.0.6"
+  }
+}
