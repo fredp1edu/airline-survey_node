@@ -8,22 +8,39 @@ app.use(require('body-parser')());
 var credentials = require('./credentials.js');      // remember to set your credentials.js file 
 app.use(require('cookie-parser')(credentials.cookieSecret));
 app.use(require('express-session')());
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+var opts = {
+    server: {
+        socketOptions: { keepAlive: 1 }
+    }
+};
+switch(app.get('env')) {
+    case 'development': 
+        mongoose.connect(credentials.mongo.development.connectionString, opts);
+        break;
+    case 'production':
+        mongoose.connect(credentials.mongo.production.connectionString, opts);
+        break;
+    default:
+        throw new Error('Unknown execution environment: ' + app.get('env'));
+};
+var SurveyModel = require('./models/surveymodel.js');
 /*  the two lines are for mocha/chai testing
     app.use(function(request, response, next) {
     response.locals.showTests = app.get('env') !== 'production' && request.query.test === '1';
     next();
 }); */
-
 app.set('port', process.env.PORT || 3000);
-
 app.use(express.static(__dirname + '/public'));
 
+
 app.get('/', function(request, response) {
-    response.render('home', {pgTitle: params.pgTitle.home} );
+    response.render('home', { pgTitle: params.getPgTitle('home') });
 });
 app.get('/dosurvey', function(request, response) {
     var tmpInput = request.session.tmpInput;
-    response.render('dosurvey', {pgTitle: params.pgTitle.doSurvey,
+    response.render('dosurvey', {pgTitle: params.getPgTitle('dosurvey'),
                                  jsFormChk: true,
                                  params: params,
                                  tmpInput: tmpInput });
@@ -46,12 +63,21 @@ app.post('/dosurvey', function(request, response) {         //add referrer page 
         tmpInput[params.getNonReqField(i)] = request.body[params.getNonReqField(i)];  // add trim()
     }
     request.session.pstInput = tmpInput;
+
+    //try putting this thing in the db
+    var dbInput = new SurveyModel(tmpInput);
+    
+    dbInput.save(function(err) {
+        if (err) return console.error(err);
+    });
+    var info = [];
+ 
     response.redirect(303, '/finishsurvey');
 });
 app.get('/finishsurvey', function(request, response) {       //add referrer page restrictions
     var pstInput = request.session.pstInput;            // add db text filtering methods before loading to DB
     var dispFrm = params.getDispForm(pstInput);
-    response.render('finishsurvey', {pgTitle: params.pgTitle.finishSurvey,
+    response.render('finishsurvey', {pgTitle: params.getPgTitle('finishsurvey'),
                                      dispFrm: dispFrm }); 
 });
 app.use(function(request, response) {

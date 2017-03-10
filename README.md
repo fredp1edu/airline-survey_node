@@ -20,4 +20,4 @@ Task 2: Integrate with MongoDB
 
 AM I MISSING SOMETHING HERE! WHAT IS SO FREAKIN COMPLICATED ABOUT THAT? SHOULDN'T THAT INFO BE ON THE FIRST PAGE?
 
-For that reason alone I think the mongo developers/instructors/whomever should be flogged.
+Sooo, after more reading of blogs and tons of other stackoverflow posts, I see the problem is not with Mongo, but with the "asynchronous" nature of node.js. Really?  All the blogs say, "get used to it," "embrace asynchronous." And I continue to ask WHY?  What advantage does this flawed technology give over the millions and millions of websites built on 'synchronous' platforms that seem to be working just fine that I would spend an endless amount of time having to compensate for the 'asynchronous' nature of node? It doesn't move any faster, the coding is not any easier, in fact, it makes it all the more cumbersome. Once again, it seems technology is taking a step back just for the idea of doing something "new" and novel. I don't want novelty, I want better, faster and more efficient results. I really don't know if I'm going to waste any more time working with such an unworkable software platform. Full stack blows...
