@@ -45,7 +45,7 @@ app.get('/dosurvey', function(request, response) {
                                  params: params,
                                  tmpInput: tmpInput });
 });
-app.post('/dosurvey', function(request, response) {         //add referrer page restrictions
+app.post('/dosurvey', function(request, response) {         //add referrer page restrictions to disable back key
     var tmpInput = {};
     var passThru = true;
     for (var i = 0; i < params.getReqFieldLen(); i++) {
@@ -62,24 +62,42 @@ app.post('/dosurvey', function(request, response) {         //add referrer page 
     for (var i = 0; i < params.getNonReqFieldLen(); i++) {
         tmpInput[params.getNonReqField(i)] = request.body[params.getNonReqField(i)];  // add trim()
     }
-    request.session.pstInput = tmpInput;
+    request.session.pstInput = tmpInput;                    // add db text filtering methods before loading to DB
 
     //try putting this thing in the db
-    var dbInput = new SurveyModel(tmpInput);
-    
+    var dbInput = new SurveyModel(tmpInput);        
     dbInput.save(function(err) {
         if (err) return console.error(err);
     });
-    var info = [];
- 
     response.redirect(303, '/finishsurvey');
 });
 app.get('/finishsurvey', function(request, response) {       //add referrer page restrictions
-    var pstInput = request.session.pstInput;            // add db text filtering methods before loading to DB
+    var pstInput = request.session.pstInput;                 // after dev is done, delete this session data in prod env   
     var dispFrm = params.getDispForm(pstInput);
     response.render('finishsurvey', {pgTitle: params.getPgTitle('finishsurvey'),
                                      dispFrm: dispFrm }); 
 });
+app.get('/allsurveys', function(request, response) {
+    SurveyModel.find({}, function(err, surveys) {
+        var surveyData = {
+            surveys: surveys.map(function(survey) {
+                for (var i = 0; i < params.getAllFieldsLen; i++) {
+                    survey[params.getAllFields(i)] = survey[params.getAllFields(i)];
+                }
+                survey.rtFriendNm = params.getTheRateKey(survey.rtFriend);          //you have to explicity spell these out. why?
+                survey.rtSpaceNm = params.getTheRateKey(survey.rtSpace);                
+                survey.rtComfortNm = params.getTheRateKey(survey.rtComfort);
+                survey.rtCleanNm = params.getTheRateKey(survey.rtClean);
+                survey.rtNoiseNm = params.getTheRateKey(survey.rtNoise);
+                return survey;
+            })
+        };
+        console.log(surveyData);
+        response.render('allsurveys', {pgTitle: params.getPgTitle('allsurveys'),
+                                     surveys: surveys });
+    });
+});
+
 app.use(function(request, response) {
     response.status(404);
     response.render('404', {layout: 'airlineError'});
@@ -92,3 +110,26 @@ app.use(function(err, request, response, next) {
 app.listen(app.get('port'), function() {
     console.log('Express started on http://localhost:' + app.get('port') + '; press Cntrl-C to terminate.');
 });
+
+
+/* don't understand why this doesn't work! why? because even in output, the fields are constrained to the data type in the schema
+        var surveyData = {
+            surveys: surveys.map(function(survey) {
+                for (var i = 0; i < params.getAllFieldsLen; i++) {
+                    for (var k = 0; k < params.getCatCodeLen; k++) {
+                        if (survey[params.getAllFields(i)] == survey[params.getCatCode(k)])
+                            survey[params.getAllFields(i)] = survey[params.getTheRateKey(survey[params.getAllFields(i)])];
+                        else
+                            survey[params.getAllFields(i)] = survey[params.getAllFields(i)];
+                    }
+                }
+                return survey;
+            })
+        }
+what about this? 
+                for (var k = 0; k < params.getCatCodeLen; k++) {
+                    newKey = params.getCatCode(k).concat('Nm');
+                    survey[newKey] = params.getTheRateKey(survey[params.getCatCode(k)]);
+                }
+
+*/

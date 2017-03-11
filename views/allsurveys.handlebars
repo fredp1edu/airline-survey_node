@@ -1,0 +1,44 @@
+<div class="inHeader">
+    <h1>All Survey Listings.</h1>
+</div>
+
+<h2>Here are the items you entered:</h2>
+<section id="sectionList">
+    <aside class="dbDspHdRw1">
+            <div class="dbDspCl_cn">Carrier Input</div>
+            <div class="dbDspCl">Flight#</div>
+            <div class="dbDspCl">Destination</div>
+            <div class="dbDspCl">Flight Date</div>
+            <div class="dbDspCl">Friendliness</div>
+            <div class="dbDspCl">Space</div>
+            <div class="dbDspCl">Comfort</div>
+            <div class="dbDspCl">Cleanliness</div>
+            <div class="dbDspCl">Noise</div>
+        </aside>
+        <aside class="dbDspHdRw2">
+            <div class="dbDspCl">First Name</div>
+            <div class="dbDspCl">Last Name</div>
+            <div class="dbDspCl">Email</div>
+        </aside>
+    {{#each surveys}}
+        <aside class="dbDspRw1">
+            <div class="dbDspCl_cn">{{carrierInput}}</div>
+            <div class="dbDspCl">{{flightNum}}</div>
+            <div class="dbDspCl">{{flightDest}}</div>
+            <div class="dbDspCl"></div>
+            <div class="dbDspCl_rt">{{rtFriendNm}}</div>
+            <div class="dbDspCl_rt">{{rtSpaceNm}}</div>
+            <div class="dbDspCl_rt">{{rtComfortNm}}</div>
+            <div class="dbDspCl_rt">{{rtCleanNm}}</div>
+            <div class="dbDspCl_rt">{{rtNoiseNm}}</div>
+        </aside>
+        <aside class="dbDspRw2">
+            <div class="dbDspCl">{{respFName}}</div>
+            <div class="dbDspCl">{{respLName}}</div>
+            <div class="dbDspCl">{{respEmail}}</div>
+        </aside>
+    {{/each}}
+</section>
+<h2>shhh!  Take a preview of all the surveys before admin rights are applied!  <a href="/allsurveys">Click here!</a></h2>
+<figure id="imgBtmCenter"><img src="/images/flightattendants.png" alt="Flight Attendants"/></figure> 
+    

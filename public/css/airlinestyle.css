@@ -96,16 +96,12 @@ h2 {
     font-size: 1.5rem;
 }
 /* *****************DOSURVEY****************** */
-#sectionForm {
+#sectionForm, #sectionDisp {
     width: 53%;
     border: 5px solid rgb(139,69,19); 
     border-radius: 40px;
     margin: 2% auto 1%;
-    background: rgb(235,235,224); /* For browsers that do not support gradients */
-    background: -webkit-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* Safari 5.1 to 6.0 */
-    background: -o-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* For Opera 11.6 to 12.0 */
-    background: -moz-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* For Firefox 3.6 to 15 */
-    background: radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* Standard syntax */
+    background: rgb(218,165,32); /* For browsers that do not support gradients */
     padding: 1%;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 1rem;
@@ -184,6 +180,12 @@ h2 {
     opacity: 0.7;
 }
 /* *****************HOME and FINISHSURVEY ****************** */
+#sectionDisp {
+    background: -webkit-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(rgb(235,235,224), rgb(184,134,11)); /* Standard syntax */
+}
 .frmLdCl_2, .frmCl_2 {
     display: inline-block;
 }
@@ -203,6 +205,7 @@ h2 {
     border-radius: 40px;
     opacity: 0.8;
 }
+/* ***************** ALLSURVEYS ****************** */
 #sectionList {
     width: 88%;
     border: 5px solid rgb(139,69,19); 
@@ -212,25 +215,33 @@ h2 {
     padding: 2%;
     font-size: .9rem;
 }
-#tableList {
-    border: 3px solid black;
+.dbDspRw1, .dbDspHdRw1 {
+    width: 98%;
+    margin: 0 auto;
 }
-.thc {
-    background-color: rgb(139,69,19);
-    color: rgb(255,215,0);
+.dbDspRw2, .dbDspHdRw2 {
+    margin: .3% 0 2.5% 15%;
+}
+.dbDspHdRw1 div, .dbDspHdRw2 div {
     text-align: center;
-    padding: 4px 5px;
-    border-collapse: collapse;
+    font-weight: 900;
+    border-bottom: 2px solid rgb(0,0,0);
 }
-.thh {
-    color: rgb(139,69,19);
+.dbDspHdRw2 {
+    text-align: left;
+}
+.dbDspCl, .dbDspCl_cn, .dbDspCl_rt {
+    display: inline-block;
+    width: 9%;
+    margin: 0 .5%;
+}
+.dbDspCl_cn {
+    width: 15%;
+}
+.dbDspCl_rt {
     text-align: center;
-    padding: 4px 5px;
-    border-bottom: 2px dashed rgb(139,69,19);
 }
-#tableList td {
-    padding: 2px 15px;
-}
+/* ******** Not sure what this is for *********/
 .gotoBtn {
     width: 50%;
     margin: 1% auto;
@@ -240,19 +251,6 @@ h2 {
     background-color: rgb(47,79,79);
     padding: 1%;
     font-weight: 700;
-}
-td.bb {
-    border: 1px solid black;
-    text-align: center;
-}
-.rowMar td {
-    margin-bottom: 2%;
-}
-.ind {
-    text-indent: 2%;
-    font-weight: 700;
-    color: rgb(105,105,105);
-    border-bottom: 1px dashed blue;
 }
 .gotoBtn a {
     font-size: 1.2rem;
