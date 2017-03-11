@@ -124,6 +124,13 @@ h2 {
     width: 22%;
     margin: 0 1%;
 }
+.frmCl_4.in {
+    margin: 0 1% 0 1.5%;
+}
+.frmCl_4.in:last-child {
+    margin: 0 0 0 1%;
+}
+
 .frmCl_3 {
     width: 30%;
     margin: 0 1%
@@ -220,7 +227,9 @@ h2 {
     margin: 0 auto;
 }
 .dbDspRw2, .dbDspHdRw2 {
-    margin: .3% 0 2.5% 15%;
+    width: 60%;
+    margin: .3% 0 2.5% 16%;
+    background-color: rgba(248,248,255,.7);
 }
 .dbDspHdRw1 div, .dbDspHdRw2 div {
     text-align: center;
@@ -230,15 +239,19 @@ h2 {
 .dbDspHdRw2 {
     text-align: left;
 }
-.dbDspCl, .dbDspCl_cn, .dbDspCl_rt {
+.dbDspCl {
     display: inline-block;
     width: 9%;
     margin: 0 .5%;
 }
-.dbDspCl_cn {
+.dbDspCl.rs {
+    width: 22%;
+    margin: 0 1%;
+}
+.dbDspCl.cn {
     width: 15%;
 }
-.dbDspCl_rt {
+.dbDspCl.rt {
     text-align: center;
 }
 /* ******** Not sure what this is for *********/

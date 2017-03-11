@@ -84,15 +84,17 @@ app.get('/allsurveys', function(request, response) {
                 for (var i = 0; i < params.getAllFieldsLen; i++) {
                     survey[params.getAllFields(i)] = survey[params.getAllFields(i)];
                 }
-                survey.rtFriendNm = params.getTheRateKey(survey.rtFriend);          //you have to explicity spell these out. why?
+                survey.rtFriendNm = params.getTheRateKey(survey.rtFriend);          //my loop doesn't work here. why?
                 survey.rtSpaceNm = params.getTheRateKey(survey.rtSpace);                
                 survey.rtComfortNm = params.getTheRateKey(survey.rtComfort);
                 survey.rtCleanNm = params.getTheRateKey(survey.rtClean);
                 survey.rtNoiseNm = params.getTheRateKey(survey.rtNoise);
+                var dt = new Date(survey.flightDate);
+                survey.flightDateNm = (dt.getUTCMonth()+1) + "/" + dt.getUTCDate() + "/" + dt.getUTCFullYear();
                 return survey;
             })
         };
-        console.log(surveyData);
+        // interesting, a console.log(surveys) or ...log(surveyData) won't show the new inputs, still conforms to schema fields;
         response.render('allsurveys', {pgTitle: params.getPgTitle('allsurveys'),
                                      surveys: surveys });
     });

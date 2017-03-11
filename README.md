@@ -16,8 +16,10 @@ Task 2: Integrate with MongoDB
 
 -  setting up map collections is definitely cooler with js than java, which makes for connecting form data to front and back-end js objects a breeze. Now for that beast mongo. 
 
-- Mongo tells you how to connect to it, mongo tells you how to create collections, add data to them, mongo tells you how to then find that data and send to an array. What Mongo does not tell you in pages and pages of reading its online manual is: how to take that array that mongo created, and very easily and simply copy it to a javascript array or object, so we can go about our business with the rest of the necessary coding. Chapters and chapters and links abound but no simple answer to that simple question.  
+Full stack blows...
 
-AM I MISSING SOMETHING HERE! WHAT IS SO FREAKIN COMPLICATED ABOUT THAT? SHOULDN'T THAT INFO BE ON THE FIRST PAGE?
+The asychronous setup just to get db data is a real pain. But having satisfactorily stored and retrieved db information, then overrode the schema to create display attributes with the right key values, we have a decent display of information.
 
-Sooo, after more reading of blogs and tons of other stackoverflow posts, I see the problem is not with Mongo, but with the "asynchronous" nature of node.js. Really?  All the blogs say, "get used to it," "embrace asynchronous." And I continue to ask WHY?  What advantage does this flawed technology give over the millions and millions of websites built on 'synchronous' platforms that seem to be working just fine that I would spend an endless amount of time having to compensate for the 'asynchronous' nature of node? It doesn't move any faster, the coding is not any easier, in fact, it makes it all the more cumbersome. Once again, it seems technology is taking a step back just for the idea of doing something "new" and novel. I don't want novelty, I want better, faster and more efficient results. I really don't know if I'm going to waste any more time working with such an unworkable software platform. Full stack blows...
+Task 3: Import the carrierdata and set up tie between two collections.
+
+
