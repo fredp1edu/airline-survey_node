@@ -14,9 +14,5 @@ for (i = 0; i < type.length; i++) {
 }
 var surveySchema = mongoose.Schema(schema);
 
-surveySchema.methods.getRateKeyName = function() {
-    
-}
-
 var SurveyModel = mongoose.model('airlinesurvey', surveySchema);
 module.exports = SurveyModel;
