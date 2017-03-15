@@ -26,6 +26,7 @@ switch(app.get('env')) {
         throw new Error('Unknown execution environment: ' + app.get('env'));
 };
 var SurveyModel = require('./models/surveymodel.js');
+var Carrier = require('./models/carrier.js');
 /*  the two lines are for mocha/chai testing
     app.use(function(request, response, next) {
     response.locals.showTests = app.get('env') !== 'production' && request.query.test === '1';
@@ -38,6 +39,16 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
     response.render('home', { pgTitle: params.getPgTitle('home') });
 });
+app.get('/searchCarrier', function(request, response) {         //for the autocomplete feature
+    var aChar = request.query.aChar;
+    var num = aChar.length;
+    Carrier.find({carrierName: {$regex: new RegExp('^' + aChar), $options: 'i'}}, {"carrierName": 1, "_id": 0}, function(err, name) {
+        if (err) throw err;
+        console.log(name);
+        response.json(name);
+    });
+});
+
 app.get('/dosurvey', function(request, response) {
     var tmpInput = request.session.tmpInput;
     response.render('dosurvey', {pgTitle: params.getPgTitle('dosurvey'),

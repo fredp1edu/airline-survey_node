@@ -4,31 +4,18 @@
  * get xy coordinates of input box and then adjust autocomplete box with position absolute accordingly.
  * add a on down arrow key press, the focus goes to the autocomplete box. 
  */
-function searchAirlines() {
+function searchCarriers() {
     
     searchChar = document.getElementById("carrierInput").value;
     if (searchChar !== "") {
-        var xmlhttp;
-        if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
-        else if (window.ActiveXObject) xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        xmlhttp.open("GET","/getcarrier?aChar="+searchChar,true);
-        xmlhttp.send(null);
-        xmlhttp.onreadystatechange = function() {
-            var results = xmlhttp.responseText;
-            var data = results.split(',');
-            if (data.length > 0) {
-                $('#resultBox').empty();
-                var lim = (data.length > 8) ? 8 : data.length;      //limit to 8 entries on the autocomplete
-                for (var i  = 1; i < lim; i++) {
-                    $('#resultBox').append($('<option>', {
-    			         value: data[i], 
-    			         text: data[i]
-                    }));  
-                }
-                $('#resultBox').attr('size', lim-1);
-                $('#searchResults').show();
-            }
-        };
+        $.getJSON('/searchCarrier?aChar='+searchChar, function(result){     //test at home 
+            $.each(result, function(index, carrierName){
+                $('#resultBox').append($('<option>', {
+    			         value: carrierName, 
+    			         text: carrierName
+                }));
+            });
+        });
     }
     else {
         $('#searchResults').hide();
@@ -111,3 +98,27 @@ $('document').ready(function() {
         killSearch();
     });
 });
+/* recreant84suborder
+
+var xmlhttp;
+        if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+        else if (window.ActiveXObject) xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        xmlhttp.open("GET","/searchCarrier?aChar="+searchChar,true);
+        xmlhttp.send(null);
+        xmlhttp.onreadystatechange = function() {
+            var data =  xmlhttp.responseText;
+            if (data.length > 0) {
+                $('#resultBox').empty();
+                var lim = (data.length > 8) ? 8 : data.length;      //limit to 8 entries on the autocomplete
+                for (var i  = 1; i < lim; i++) {
+                    $('#resultBox').append($('<option>', {
+    			         value: data[i]['carrierName'], 
+    			         text: data[i]['carrierName']
+                    }));  
+                }
+                $('#resultBox').attr('size', lim-1);    //
+                $('#searchResults').show();
+            } 
+        };
+        
+*/

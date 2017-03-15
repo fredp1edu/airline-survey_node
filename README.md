@@ -23,5 +23,8 @@ The asychronous setup just to get db data is a real pain. But having satisfactor
 Task 3: Import the carrierdata and set up tie between two collections.
 
 In the java servlet project, i uploaded to the db a 2897-name list of airline carriers, their names, codes, and base countries. After finding out the proper instructions online, uploading to MySQL took less than 3 minutes. But with mongodb, of course it never imported, error after error, of course the documentation was lacking in any adequate troubleshooting protocols, of course a bunch of solutions provided from various websites and stackoverflow, of course, none of them work when it comes to mongodb. mongo is starting to rival oracle in their crappy documentation. 
--  i ended up taking the cvs file, breaking each column into arrays and merging them individually within the mongoose schema via a for loop
+-   i ended up taking the cvs file, breaking each column into arrays and merging them individually within the mongoose schema via a for loop
+-   I was able to have AJAX reach node to reach mongo database, do a regex search for the onekeyup character and return the data. I still have to do the following:
+--  Index the carrierName field in the collection (if that's necessary), or at least sort the output alphabetically (mongo)
+--  when the output is json, still having a problem parsing the data on the AJAX side. i get output with regular javascript but not with jquery. still working on it. 
 
