@@ -44,7 +44,6 @@ app.get('/searchCarrier', function(request, response) {         //for the autoco
     var num = aChar.length;
     Carrier.find({carrierName: {$regex: new RegExp('^' + aChar), $options: 'i'}}, {"carrierName": 1, "_id": 0}, function(err, name) {
         if (err) throw err;
-        console.log(name);
         response.json(name);
     });
 });

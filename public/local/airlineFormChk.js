@@ -5,16 +5,27 @@
  * add a on down arrow key press, the focus goes to the autocomplete box. 
  */
 function searchCarriers() {
-    
     searchChar = document.getElementById("carrierInput").value;
     if (searchChar !== "") {
-        $.getJSON('/searchCarrier?aChar='+searchChar, function(result){     //test at home 
-            $.each(result, function(index, carrierName){
-                $('#resultBox').append($('<option>', {
-    			         value: carrierName, 
-    			         text: carrierName
-                }));
-            });
+        $.ajax({
+            url:'/searchCarrier',
+            data: { aChar: searchChar },
+            dataType:'json',
+            type:'get',
+            success: function(data) {
+                if (data.length > 0) {
+                    $('#resultBox').empty();
+                    var lim = (data.length > 9) ? 9 : data.length;      //limit to 9 entries on the autocomplete
+                    for (var i  = 1; i < lim; i++) {                    // use a for loop to set limit, can't use each
+                        $('#resultBox').append($('<option>', {
+                             value: data[i]['carrierName'], 
+                             text: data[i]['carrierName']
+                        }));
+                    }
+                    $('#resultBox').attr('size', lim-1);    //
+                    $('#searchResults').show();
+                } 
+            }
         });
     }
     else {
@@ -120,5 +131,12 @@ var xmlhttp;
                 $('#searchResults').show();
             } 
         };
-        
+        $.getJSON('/searchCarrier?aChar='+searchChar, function(result){     //test at home 
+            $.each(result, function(index, data){
+                $('#resultBox').append($('<option>', {
+    			         value: data.carrierName, 
+    			         text: data.carrierName
+                }));
+            });
+        });
 */
