@@ -121,14 +121,14 @@ h2 {
     display: inline-block;
 }
 .frmCl_4 {
-    width: 22%;
+    width: 21%;
     margin: 0 1%;
 }
 .frmCl_4.in {
-    margin: 0 1% 0 1.5%;
+    margin: 0 1% 0 2%;
 }
 .frmCl_4.in:last-child {
-    margin: 0 0 0 1%;
+    margin: 0 0 0 0;
 }
 
 .frmCl_3 {
@@ -152,6 +152,16 @@ h2 {
 .frmRtHdCl {
     font-weight: 800;
     border-bottom: 2px solid rgb(0,0,0);
+}
+#searchResults {
+    position: absolute;
+    top: 44%;
+    left: 38%
+    width: 30%;
+    display: none;
+}
+#resultBox {
+    width: 130px;
 }
 #flightDate {
     text-align: center;
@@ -268,15 +278,6 @@ h2 {
 .gotoBtn a {
     font-size: 1.2rem;
     color: rgb(255,215,0);
-}
-#searchResults {
-    width: 32%;
-    margin-top: -2.5%;
-    margin-left: 6.5%;
-    display: none;
-}
-#resultBox {
-    width: 100%;
 }
 #table1, #table2, #table3 {
     width: 60%;

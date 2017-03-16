@@ -16,13 +16,17 @@ function searchCarriers() {
                 if (data.length > 0) {
                     $('#resultBox').empty();
                     var lim = (data.length > 9) ? 9 : data.length;      //limit to 9 entries on the autocomplete
-                    for (var i  = 1; i < lim; i++) {                    // use a for loop to set limit, can't use each
+                    for (var i  = 0; i < lim; i++) {                    // use a for loop to set limit, can't use each
                         $('#resultBox').append($('<option>', {
                              value: data[i]['carrierName'], 
                              text: data[i]['carrierName']
                         }));
                     }
                     $('#resultBox').attr('size', lim-1);    //
+                    /*var po = $('#carrierInput').position();
+                    var pTop = po.top + 50; var pLeft = po.left;
+                    $('#searchResults').css('top': pTop);         javascript - can't position this thing 
+                    //$('#searchResults').css(left: po.left); */
                     $('#searchResults').show();
                 } 
             }
