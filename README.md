@@ -22,9 +22,9 @@ The asychronous setup just to get db data is a real pain. But having satisfactor
 
 Task 3: Import the carrierdata and set up tie between two collections.
 
-In the java servlet project, i uploaded to the db a 2897-name list of airline carriers, their names, codes, and base countries. After finding out the proper instructions online, uploading to MySQL took less than 3 minutes. But with mongodb, of course, obscure instructions, lacking in any adequate troubleshooting or what if protocols. A simple mongoimport may have worked just fine, but going to the Mongo Atlas (cloud) host may have been a big factor in why I kept getting all the errors. 
--   i ended up taking the cvs file, breaking each column into arrays and merging them individually within the mongoose schema via a for loop
--   I was able to have AJAX reach node to reach mongo database, do a regex search for the onekeyup character and return the data. I still have to do the following:
+In the java servlet project, i uploaded to the db a 2897-name list of airline carriers, their names, codes, and base countries. After finding out the proper instructions online, uploading to MySQL took less than 3 minutes. But with mongodb, of course, obscure instructions, lacking in any adequate troubleshooting or what-if protocols, the mongo import project didn't work out so well (it didn't work at all). A simple mongoimport to a local db may have worked just fine, but going to the Mongo Atlas (cloud) host may have been a big factor in why I kept getting all the errors. 
+-   i ended up taking the cvs file, breaking each column into its own 2897-element array and merging them individually within the mongoose schema via a for loop
+-   I was able to have AJAX make a get request to node to reach mongo database, do a regex search for the onekeyup character input and return the data. The regex coding, once you found it on stackoverflow, is very clean coding, compared to the substring method used with java/mysql. I still have to do the following:
 --  Index the carrierName field in the collection (if that's necessary), or at least sort the output alphabetically (mongo)
 --  play around with the css to make the autocomplete box align better with the input doc on the form (looks awful right now) 
 
