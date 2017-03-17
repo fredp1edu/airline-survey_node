@@ -155,8 +155,8 @@ h2 {
 }
 #searchResults {
     position: absolute;
-    top: 44%;
-    left: 38%
+    /*top: 44%;
+    left: 38% */
     width: 30%;
     display: none;
 }

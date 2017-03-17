@@ -22,13 +22,12 @@ function searchCarriers() {
                              text: data[i]['carrierName']
                         }));
                     }
-                    $('#resultBox').attr('size', lim-1);    //
-                    /*var po = $('#carrierInput').position();
-                    var pTop = po.top + 50; var pLeft = po.left;
-                    $('#searchResults').css('top': pTop);         javascript - can't position this thing 
-                    //$('#searchResults').css(left: po.left); */
+                    $('#resultBox').attr('size', lim-1);   
+                    var po = $('#carrierInput').position();
+                    $('#searchResults').css({top: po.top + 18, left: po.left + 1}); 
                     $('#searchResults').show();
-                } 
+                }
+                else $('#searchResults').hide();
             }
         });
     }
